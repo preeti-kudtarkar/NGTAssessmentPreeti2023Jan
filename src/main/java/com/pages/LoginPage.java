@@ -1,8 +1,8 @@
 package com.pages;
 
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -37,10 +37,19 @@ public class LoginPage {
 		Properties pObj=new Properties();
 		pObj.load(new FileInputStream(rootFolder+ "//src//test//resources//app.properties"));
 		
+		//Enter Email from properties file
 		emailField.sendKeys(pObj.getProperty("email"));
+		
+		//Enter Password from properties file
 		passwordField.sendKeys(pObj.getProperty("password"));
-		loginButton.click();
+		
+		//Click on Login button
+	     loginButton.click();
+		
+		// Wait for some time for the page to Load
 		Thread.sleep(34000);
+		
+		//Click on Login button again
 		loginButton.click();
 		Thread.sleep(5000);
 		
